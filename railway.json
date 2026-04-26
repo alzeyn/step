@@ -1,0 +1,26 @@
+#!/bin/bash
+echo ""
+echo "  ╔══════════════════════════════════════╗"
+echo "  ║   STEP CODE — Запуск сайта           ║"
+echo "  ╚══════════════════════════════════════╝"
+echo ""
+
+if ! command -v node &> /dev/null; then
+  echo "  ✗ Node.js не найден!"
+  echo "    Скачай с https://nodejs.org и установи версию LTS"
+  exit 1
+fi
+
+if [ ! -d "node_modules" ]; then
+  echo "  Устанавливаю зависимости (первый раз, подожди 1-2 минуты)..."
+  npm install
+  echo ""
+fi
+
+echo "  ✓ Запускаю сайт..."
+echo "  ✓ Фронтенд: http://localhost:5173"
+echo "  ✓ Бэкенд:   http://localhost:3001"
+echo ""
+echo "  Нажми Ctrl+C чтобы остановить"
+echo ""
+npm run dev
